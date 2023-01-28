@@ -29,12 +29,12 @@ func (b *Backtracker) backtrack(currentQueens []int) {
 		remaining = append(remaining, i)
 	}
 	for _, v := range remaining {
-		next := make([]int, len(currentQueens), b.n)
+		next := make([]int, len(currentQueens)+1)
 		copy(next, currentQueens)
-		next = append(next, v)
+		next[len(currentQueens)] = v
 		if len(next) == b.n {
 			b.result = append(b.result, next)
-			return
+			continue
 		}
 		b.backtrack(next)
 	}

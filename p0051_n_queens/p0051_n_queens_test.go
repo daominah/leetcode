@@ -52,4 +52,7 @@ func TestDrawBoard(t *testing.T) {
 	if len(solutions) > 0 {
 		t.Logf("%v", drawBoard(solutions[0]))
 	}
+	if b.n == 7 && len(solutions) != 40 {
+		t.Errorf("error nSolutions on %vx%v board got %v, want: %v", b.n, b.n, len(solutions), 40)
+	}
 }
